@@ -10,9 +10,11 @@ app.use(express.json());
 
 const brothRoutes = require('./routes/brothRoute');
 const proteinRoutes = require('./routes/proteinRoute')
+const orderRoutes = require('./routes/orderRoute');
 
 app.use('/broths', brothRoutes);
 app.use('/proteins', proteinRoutes);
+app.use('/orders', orderRoutes);
 
 app.listen(port, () => {
     console.log(`Server running at http://${host}:${port}/`);
