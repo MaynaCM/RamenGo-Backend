@@ -8,7 +8,9 @@ const host = 'localhost';
 
 app.use(express.json());
 
+const brothRoutes = require('./routes/brothRoute');
 
+app.use('/broths', brothRoutes);
 
 app.listen(port, () => {
     console.log(`Server running at http://${host}:${port}/`);
