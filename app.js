@@ -1,12 +1,14 @@
 // app.js
 require('dotenv').config();
 const express = require('express');
+const apiKeyMiddleware = require('./middleware/apiKeyMiddleware');
 const app = express();
 const port = process.env.PORT || 3000;
 const host = 'localhost';
 
 
 app.use(express.json());
+app.use(apiKeyMiddleware);  
 
 const brothRoutes = require('./routes/brothRoute');
 const proteinRoutes = require('./routes/proteinRoute')
