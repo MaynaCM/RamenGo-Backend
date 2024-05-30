@@ -9,8 +9,10 @@ const host = 'localhost';
 app.use(express.json());
 
 const brothRoutes = require('./routes/brothRoute');
+const proteinRoutes = require('./routes/proteinRoute')
 
 app.use('/broths', brothRoutes);
+app.use('/proteins', proteinRoutes);
 
 app.listen(port, () => {
     console.log(`Server running at http://${host}:${port}/`);
