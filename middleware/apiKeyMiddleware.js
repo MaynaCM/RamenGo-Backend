@@ -6,7 +6,7 @@ const apiKeyMiddleware = (req, res, next) => {
     const validApiKey = process.env.API_KEY;
 
     if (!apiKey || apiKey !== validApiKey) {
-        return res.status(403).json({ error: 'Forbidden: Invalid API Key' });
+        return res.status(403).json({ error: 'Forbidden: x-api-key header missing' });
     }
 
     next();

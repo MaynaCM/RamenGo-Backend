@@ -37,7 +37,6 @@ const insertOrder = async (broth, protein, orderDescription, orderImage) => {
         .insert([orderData])
         .single();
 
-    
     return orderData;
 };
 
@@ -48,7 +47,10 @@ exports.createOrder = async (req, res) => {
     proteinId = parseInt(proteinId, 10);
 
         try {
-
+        
+            if (!brothId || !proteinId) {
+                return res.status(400).json({ error: "both brothId and proteinId are required" });
+            }
         // Consulta SQL paralela afim de evitar uso de duas funções com mesmo objetivo
         const [brothResponse, proteinResponse] = await Promise.all([
             supabase.from('Broths').select('*').eq('id', brothId).single(),
@@ -60,14 +62,14 @@ exports.createOrder = async (req, res) => {
     
 
         if (brothError) {
-            console.log('erro broth')
             return res.status(500).json({ error: brothError.message, });
         }
     
         if (proteinError) {
-            console.log('erro protein')
             return res.status(500).json({ error: proteinError.message });
         }
+
+        
     
         let orderImage;
 
@@ -94,6 +96,6 @@ exports.createOrder = async (req, res) => {
         res.status(201).json(response);
     
         } catch (err) {
-        res.status(500).json({ error: err.message });
+            res.status(500).json({ error: "could not place order" });
         }
     };
