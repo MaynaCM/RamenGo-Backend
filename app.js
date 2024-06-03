@@ -9,13 +9,8 @@ const host = 'localhost';
 
 
 app.use(express.json());
+app.use(cors());
 app.use(apiKeyMiddleware);  
-app.use(cors({
-    origin: '*', 
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-}));
 
 const brothRoutes = require('./routes/brothRoute');
 const proteinRoutes = require('./routes/proteinRoute')
@@ -25,6 +20,8 @@ app.use('/broths', brothRoutes);
 app.use('/proteins', proteinRoutes);
 app.use('/orders', orderRoutes);
 
+
+  
 app.listen(port, () => {
     console.log(`Server running at http://${host}:${port}/`);
 });
