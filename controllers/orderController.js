@@ -74,9 +74,9 @@ exports.createOrder = async (req, res) => {
         let orderImage;
 
         if (proteinId === 1) {
-            orderImage = 'https://maynacm.github.io/RamenGo-Imgs/ChasuRamen.svg';
+            orderImage = 'https://maynacm.github.io/RamenGo-Imgs/ChasuRamen.png';
         } else if (proteinId === 2) {
-            orderImage = 'https://maynacm.github.io/RamenGo-Imgs/VeggieRamen.svg';
+            orderImage = 'https://maynacm.github.io/RamenGo-Imgs/VeggieRamen.png';
         } else if (proteinId === 3) {
             orderImage = 'https://maynacm.github.io/RamenGo-Imgs/karagueRamen.png';
         } else {
