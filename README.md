@@ -30,4 +30,4 @@ Este guia detalha os passos necessários para configurar o ambiente de desenvolv
          npm run start
       ```
 **Futuras atualizações:**
-    * Pretendo refazer a API com um middleware mais robusto, adicionar fluxos de validação e autenticação, além de usar um banco de dados mais tradicional como PostgreSQL ou MySQL
+    *Pretendo refazer a API com um middleware mais robusto, adicionar fluxos de validação e autenticação, além de usar um banco de dados mais tradicional como PostgreSQL ou MySQL
